@@ -7,6 +7,7 @@ import pandas as pd
 import numpy as np
 
 class LabelEncoder():
+
     def __init__(self , series = None , dict = None, labels = None , ignorenan = False):
         self.series = series
         self.dict = dict
@@ -89,11 +90,8 @@ class LabelEncoder():
         else:
             return f'Encoder settings was changed and is now succesfully encoding NaNs'
 
-
     def set_nan(self, value):
-        if isinstance(value, float) == False or isinstance(value, int) == False:
-            raise Exception('"value" is not an integer or a float')
-        return self.set_value(self, np.nan , value)
+        return self.set_value(np.nan , value)
 
     def add_label(self, label , value):
         if isinstance(value, (int, float)) == False:
